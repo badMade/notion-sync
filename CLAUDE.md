@@ -95,7 +95,7 @@ from notion_sync import NotionSync
 
 sync = NotionSync(
     repo_path="/path/to/repo",
-    database_id="72d9345fc671480cb9b72d4bd22baf74"
+    database_id="<YOUR_NOTION_DATABASE_ID>"
 )
 
 # Sync
