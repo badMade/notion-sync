@@ -115,13 +115,13 @@ page = sync.get_page("notion-page-id")
 
 The SQLite database (`memory.db`) contains:
 
-- **pages**: Page records with `notion_id`, `title`, `content_hash`, `last_edited`, `last_synced`, `status`
+- **pages**: Page records with `notion_id`, `title`, `content_hash`, `last_edited`, `last_synced`, `status`, `parent_id`
 - **sync_log**: Sync operation history with timestamps, counts, and status
 
 ## Development Notes
 
-- **Python version:** 3.10+ (uses `|` union types)
-- **Dependencies:** `requests` (HTTP client), optional `typing-extensions`
+- **Python version:** 3.10+ (required for `|` union types; earlier versions are not supported)
+- **Dependencies:** `requests` (HTTP client)
 - **Token storage:** macOS Keychain via `security` command, or `NOTION_TOKEN` env var
 - **Lock file:** `/tmp/notion-sync.lock` prevents concurrent runs
 
