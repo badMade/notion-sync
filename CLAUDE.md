@@ -120,7 +120,7 @@ The SQLite database (`memory.db`) contains:
 
 ## Development Notes
 
-- **Python version:** 3.8+ (uses `|` union types, requires 3.10+ or typing-extensions)
+- **Python version:** 3.10+ (uses `|` union types)
 - **Dependencies:** `requests` (HTTP client), optional `typing-extensions`
 - **Token storage:** macOS Keychain via `security` command, or `NOTION_TOKEN` env var
 - **Lock file:** `/tmp/notion-sync.lock` prevents concurrent runs
