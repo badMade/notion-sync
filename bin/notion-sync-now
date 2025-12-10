@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# notion-sync-now - On-demand sync trigger for LLM agent invocation
+#
+# Provides a simple, safe interface for agents to trigger immediate syncs.
+# Uses flock to prevent concurrent runs with cron.
+#
+# Usage:
+#   notion-sync-now              # Trigger sync
+#   notion-sync-now --status     # Check status
+#   notion-sync-now --search "query"
+#
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SYNC_SCRIPT="${SCRIPT_DIR}/notion-sync.sh"
+LOCK_FILE="/tmp/notion-sync.lock"
+
+# Check if sync script exists
+if [[ ! -x "$SYNC_SCRIPT" ]]; then
+    echo "Error: Sync script not found at $SYNC_SCRIPT" >&2
+    exit 1
+fi
+
+# Try to acquire lock and run sync
+# If another sync is running, report and exit cleanly
+if ! flock -n "$LOCK_FILE" "$SYNC_SCRIPT" "$@"; then
+    echo "Sync already running - skipping"
+    exit 0
+fi

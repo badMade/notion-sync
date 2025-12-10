@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Label: Unique identifier for this job -->
+    <key>Label</key>
+    <string>com.geoff.notion-sync</string>
+    
+    <!-- Program: Path to the sync script -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/geoffplymale/Documents/GitHub/claude_memory/bin/notion-sync.sh</string>
+    </array>
+    
+    <!-- Working directory -->
+    <key>WorkingDirectory</key>
+    <string>/Users/geoffplymale/Documents/GitHub/claude_memory</string>
+    
+    <!-- Run every 15 minutes -->
+    <key>StartInterval</key>
+    <integer>900</integer>
+    
+    <!-- Alternative: Run at specific times (commented out)
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Minute</key>
+            <integer>15</integer>
+        </dict>
+        <dict>
+            <key>Minute</key>
+            <integer>30</integer>
+        </dict>
+        <dict>
+            <key>Minute</key>
+            <integer>45</integer>
+        </dict>
+    </array>
+    -->
+    
+    <!-- Logging -->
+    <key>StandardOutPath</key>
+    <string>/Users/geoffplymale/logs/notion-sync.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/Users/geoffplymale/logs/notion-sync-error.log</string>
+    
+    <!-- Environment variables -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>NOTION_SYNC_REPO</key>
+        <string>/Users/geoffplymale/Documents/GitHub/claude_memory</string>
+        <key>NOTION_DATABASE_ID</key>
+        <string>72d9345fc671480cb9b72d4bd22baf74</string>
+    </dict>
+    
+    <!-- Run at load (first run immediately when loaded) -->
+    <key>RunAtLoad</key>
+    <false/>
+    
+    <!-- Keep alive: restart if crashes -->
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+    </dict>
+    
+    <!-- Throttle: minimum seconds between runs -->
+    <key>ThrottleInterval</key>
+    <integer>300</integer>
+    
+    <!-- Nice: lower priority to not impact system -->
+    <key>Nice</key>
+    <integer>10</integer>
+    
+    <!-- Timeout: kill if runs longer than 5 minutes -->
+    <key>TimeOut</key>
+    <integer>300</integer>
+    
+    <!-- Process type: background task -->
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>
