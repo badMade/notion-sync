@@ -47,7 +47,7 @@ python -m notion_sync.database init
 |----------|-------------|---------|
 | `NOTION_TOKEN` | Notion API token | Keychain lookup |
 | `NOTION_SYNC_REPO` | Repository path | Current directory |
-| `NOTION_DATABASE_ID` | Notion database ID | `72d9345fc671480cb9b72d4bd22baf74` |
+| `NOTION_DATABASE_ID` | Notion database ID | `<YOUR_DATABASE_ID>` |
 
 ## Architecture
 
